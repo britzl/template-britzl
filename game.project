@@ -1,5 +1,5 @@
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /loader/loader.collectionc
 render = /orthographic/render/orthographic.renderc
 
 [script]
@@ -15,7 +15,7 @@ package = com.britzl.todo
 gcm_sender_id = 
 
 [project]
-dependencies = https://github.com/britzl/monarch/archive/2.17.2.zip,https://github.com/britzl/defold-orthographic/archive/2.9.1.zip,https://github.com/britzl/defold-input/archive/1.6.0.zip
+dependencies = https://github.com/britzl/monarch/archive/3.0.2.zip,https://github.com/britzl/defold-orthographic/archive/2.9.2.zip,https://github.com/britzl/defold-input/archive/2.4.1.zip
 
 [physics]
 gravity_y = -1000.0
@@ -31,4 +31,5 @@ infoplist = /builtins/manifests/ios/Info.plist
 
 [input]
 game_binding = /in/bindings/all.input_bindingc
+use_accelerometer = 0
 

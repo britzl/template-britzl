@@ -1,0 +1,7 @@
+local monarch = require "monarch.monarch"
+
+function init(self)
+	timer.delay(0, false, function()
+		monarch.show("menu")
+	end)
+end

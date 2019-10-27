@@ -1,0 +1,72 @@
+go.property(player_id, 0)
+
+local state = require "in.state"
+local mapper = require "in.mapper"
+local triggers = require "in.triggers"
+
+local LEFT = hash("left")
+local RIGHT = hash("right")
+local UP = hash("up")
+local DOWN = hash("down")
+
+function init(self)
+	state.acquire()
+	self.keys = state.create()
+	mapper.bind(triggers.KEY_LEFT, LEFT, self.player_id)
+	mapper.bind(triggers.KEY_RIGHT, RIGHT, self.player_id)
+	mapper.bind(triggers.KEY_UP, UP, self.player_id)
+	mapper.bind(triggers.KEY_DOWN, DOWN, self.player_id)
+	self.direction = vmath.vector3()
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	local pos = go.get_position()
+	pos = pos + self.direction * 100 * dt
+	go.set_position(pos)
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	action_id = mapper.on_input(action_id, self.player_id)
+	state.update(action_id, action, self.keys)
+
+	if action_id == LEFT then
+		if action.pressed then
+			self.direction.x = -1
+		elseif action.released then
+			self.direction.x = 0
+		end
+	elseif action_id == RIGHT then
+		if action.pressed then
+			self.direction.x = 1
+		elseif action.released then
+			self.direction.x = 0
+		end
+	elseif action_id == UP then
+		if action.pressed then
+			self.direction.y = 1
+		elseif action.released then
+			self.direction.y = 0
+		end
+	elseif action_id == DOWN then
+		if action.pressed then
+			self.direction.y = -1
+		elseif action.released then
+			self.direction.y = 0
+		end
+	end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
