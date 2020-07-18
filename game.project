@@ -15,7 +15,7 @@ package = com.britzl.todo
 gcm_sender_id = 
 
 [project]
-dependencies = https://github.com/britzl/monarch/archive/3.0.2.zip,https://github.com/britzl/defold-orthographic/archive/2.9.2.zip,https://github.com/britzl/defold-input/archive/2.4.1.zip
+dependencies = https://github.com/britzl/monarch/archive/3.2.1.zip,https://github.com/britzl/defold-orthographic/archive/2.10.1.zip,https://github.com/britzl/defold-input/archive/2.8.4.zip
 
 [physics]
 gravity_y = -1000.0
